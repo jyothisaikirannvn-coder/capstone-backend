@@ -21,10 +21,10 @@ public class UserProfileRepository {
     private static final DateTimeFormatter MONTH_YEAR = DateTimeFormatter.ofPattern("MMM yyyy");
 
     public UserProfileRepository(DynamoDbClient dynamoDbClient,
-                                 @Value("${aws.dynamodb.register-users-table-name}") String tableName) {
-        this.dynamoDbClient = dynamoDbClient;
-        this.tableName = tableName;
-    }
+            @Value("${REGISTER_USERS_TABLE_NAME}") String tableName) {
+    		this.dynamoDbClient = dynamoDbClient;
+    		this.tableName = tableName;
+}
 
     // This method name must be findByEmail (not findByUserId)
     public Optional<UserProfile> findByEmail(String email) {
